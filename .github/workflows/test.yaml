@@ -68,7 +68,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          fetch-depth: 1
           repository: uc-cdis/data-portal
           path: "./data-portal"
           ref: ${{ steps.branch.outputs.branch }}
