@@ -14,28 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-
-    # Check if there has been changes to the Dockerfile or the docker build workflow
-    # If there are changes to either of these files, we want to rebuild ALL images.
-      - name: Verify Changed files
-        uses: tj-actions/changed-files@v34
-        id: verify-changed-files
-        with:
-          files: |
-            Dockerfile
-            .github/workflows/portal-docker-build.yml
-
-
-      - name: get-all-folders-if-big-change
-        id: list-all
-        if: steps.verify-changed-files.outputs.any_changed == 'true'
-        run: |
-          folders=$(tree -J -d -L 1 ./configurations | jq -c '.[0].contents | map(.name)')
-          echo $folders
-          echo "folders=$folders" >> $GITHUB_OUTPUT
-
-
-
       # Only check for changed files if it's not a change to the Dockerfile or the docker-build workflow
       # Changed to Dockerfile or docker-build-workflow will trigger builds for every environment.
       - name: Check changed files
