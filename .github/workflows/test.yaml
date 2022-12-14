@@ -39,7 +39,7 @@ jobs:
                   newArr.push(folderName)
               }
             }
-            core.setOutput('dir_names', JSON.newArr)
+            core.setOutput('dir_names', newArr)
 
 
   matrix-builder-job:
