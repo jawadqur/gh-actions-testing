@@ -61,7 +61,7 @@ jobs:
         id: branch
         run: |
           branch="master"
-          [ -f configurations/${{ matrix.environments  }}/portal-branch ] && branch=$(cat configurations/$i/portal-branch)
+          [ -f configurations/${{ matrix.environments  }}/portal/portal-branch ] && branch=$(cat configurations/$i/portal/portal-branch)
           echo "branch=${branch}" >> $GITHUB_OUTPUT
 
 
